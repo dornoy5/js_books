@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Book Name:<input id="book">
+    Author:<input id="author">
+    <br>
+    <button onclick="first()">First</button>
+    <button onclick="next()">next</button>
+    <button onclick="prev()">prev</button>
+    <button onclick="last()">Last</button> |
+    <button onclick="add()">Add</button>
+    <button onclick="del()">del</button>
+    <button onclick="save()">save</button>
+    <div id="display"></div>
+    <script>
+        let index = 0
+        let books = [
+            { "book": "harry", "author": "j.k. roling" },
+            { "book": "how to run slow", "author": "me" },
+            { "book": "how to run", "author": "not me" }
+        ]
+        function updDisplay() {
+            book.value = books[index].book
+            author.value = books[index].author
+            display.innerHTML =`Book number: ${index+1} `
+        }
+        function save() {
+            localStorage.setItem("books",JSON.stringify( books))
+        }
+        function load() {
+            books=JSON.parse( localStorage.getItem("books"))
+            // console.log(localStorage.getItem("books"))
+        }
+        function add() {
+            books.push({ "book": book.value, "author": author.value })
+        }
+        function first() {
+            index = 0
+            updDisplay()
+        }
+        function next() {
+            index = (index +1) % books.length
+            updDisplay()
+        }
+        function prev() { 
+            index = index >0 ?index -1:0
+            updDisplay()
+         }
+        function last() { 
+            index = books.length-1
+            updDisplay()
+         }
+         load()
+        updDisplay()
+    </script>
+</body>
+
+</html>

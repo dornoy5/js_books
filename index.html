@@ -35,8 +35,8 @@
             localStorage.setItem("books",JSON.stringify( books))
         }
         function load() {
-            books=JSON.parse( localStorage.getItem("books"))
-            // console.log(localStorage.getItem("books"))
+            if(localStorage.getItem("books") != null)
+                books=JSON.parse( localStorage.getItem("books"))
         }
         function add() {
             books.push({ "book": book.value, "author": author.value })

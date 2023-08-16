@@ -1,19 +1,9 @@
 {
   "books": [
     {
-      "id": 0,
       "book": "harry",
-      "author": "j.k. roling"
-    },
-    {
-      "id": 1,
-      "book": "how to run slow",
-      "author": "me"
-    },
-    {
-      "id": 2,
-      "book": "how to run",
-      "author": "not me"
+      "author": "baga",
+      "id": 0
     },
     {
       "book": "harry",

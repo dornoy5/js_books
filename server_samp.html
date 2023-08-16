@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Book Name:<input id="book">
+    Author:<input id="author">
+    <button onclick="addData()">Add</button>
+    <script>
+        const MY_SERVER = "http://localhost:3000/books"
+        let books = []
+        let index = 0
+
+        async function getData() {
+            books = await fetch(MY_SERVER).then((response) => response.json())
+            updDisplay();
+        }
+        async function addData() {
+            fetch(MY_SERVER, {
+                method: 'POST',
+                body: JSON.stringify({
+                    book: book.value,
+                    author: author.value,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+        }
+
+        function updDisplay() {
+            book.value = books[index].book
+            author.value = books[index].author
+        }
+        getData()
+    </script>
+</body>
+
+</html>

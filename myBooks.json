@@ -2,11 +2,6 @@
   "books": [
     {
       "book": "harry",
-      "author": "baga",
-      "id": 0
-    },
-    {
-      "book": "harry",
       "author": "j.k. roling",
       "id": 3
     },
@@ -19,6 +14,11 @@
       "book": "",
       "author": "",
       "id": 5
+    },
+    {
+      "book": "harry",
+      "author": "j.k. roling",
+      "id": 6
     }
   ]
 }
